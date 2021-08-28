@@ -24,8 +24,8 @@ services:
       context: .
       dockerfile: docker/node/Dockerfile
     volumes:
-      - ./frontend/:/usr/src/app:cached
-    command: sh -c "cd react_app && yarn start"
+      - ./frontend/:/usr/src/app
+    command: sh -c "cd my-project && npm run build && npm start"
     ports:
       - "3000:3000"
     networks:

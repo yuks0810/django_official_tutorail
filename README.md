@@ -77,3 +77,8 @@ datetime.datetime(2012, 2, 26, 13, 0, 0, 775217, tzinfo=<UTC>)
 Related objects reference:
 
 https://docs.djangoproject.com/ja/3.2/ref/models/relations/
+
+## Frontend
+
+### CoreUI
+https://coreui.io/react/
