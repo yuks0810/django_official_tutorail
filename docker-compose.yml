@@ -1,0 +1,33 @@
+version: '3'
+
+services:
+  db:
+    image: postgres
+    environment:
+      - 'POSTGRES_USER=postgres'
+      - 'POSTGRES_PASSWORD=postgres'
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+  web:
+    build: .
+    command: python3 mysite/manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/code
+    ports:
+      - 8000:8000
+      - 3000:3000
+    environment:
+      # 1ならデバックモード
+      - DEBUG=1
+      - SECRET_KEY=hoge
+      - DATABASE_ENGINE=django.db.backends.postgresql
+      - DATABASE_DB=django_db
+      - DATABASE_USER=django_db_user
+      - DATABASE_PASSWORD=password1234
+      - DATABASE_HOST=postgres
+      - DATABASE_PORT=5432
+    depends_on:
+      - db
+
+volumes:
+  postgres_data:
