@@ -1,25 +1,44 @@
 version: '3'
 
 services:
-  db:
-    image: postgres
-    ports: 
-            - "5432"
+  mysql-db:
+    container_name: "mysql-db"
+    image: mysql:5.7
     environment:
-      - POSTGRES_DB=postgres
-      - POSTGRES_USER=postgres
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: test_database
+      MYSQL_USER: docker
+      MYSQL_PASSWORD: docker
+      TZ: 'Asia/Tokyo'
+    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
     volumes:
-      - postgres_data:/var/lib/postgresql/data
+      - ./docker/db/data:/var/lib/mysql
+      - ./docker/db/my.cnf:/etc/mysql/conf.d/my.cnf
+      - ./docker/db/sql:/docker-entrypoint-initdb.d
+    ports:
+      - 3306:3306
+  phpmyadmin:
+    container_name: "phpmyadmin"
+    image: phpmyadmin/phpmyadmin
+    environment:
+    - PMA_ARBITRARY=1
+    - PMA_HOSTS=mysql-db
+    - PMA_USER=root
+    - PMA_PASSWORD=root
+    ports:
+    - 8080:80
   web:
+    container_name: "web"
     build: .
-    command: python mysite/manage.py runserver 0:8000
+    command: bash -c "pip install -r requirements.txt && python mysite/manage.py runserver 0:8000"
     volumes:
       - .:/code
     ports:
       - 8000:8000
     depends_on:
-      - db
+      - mysql-db
   node:
+    container_name: "node"
     build:
       context: .
       dockerfile: docker/node/Dockerfile
