@@ -21,16 +21,28 @@ services:
     container_name: "phpmyadmin"
     image: phpmyadmin/phpmyadmin
     environment:
-    - PMA_ARBITRARY=1
-    - PMA_HOSTS=mysql-db
-    - PMA_USER=root
-    - PMA_PASSWORD=root
+      - PMA_ARBITRARY=1
+      - PMA_HOSTS=mysql-db
+      - PMA_USER=root
+      - PMA_PASSWORD=root
     ports:
-    - 8080:80
+      - 8080:80
+    depends_on:
+      - mysql-db
+  # db:
+  #   container_name: "postgres-db"
+  #   image: postgres
+  #   ports: 
+  #           - "5432"
+  #   environment:
+  #     - POSTGRES_DB=postgres
+  #     - POSTGRES_USER=postgres
+  #   volumes:
+  #     - postgres_data:/var/lib/postgresql/data
   web:
     container_name: "web"
     build: .
-    command: bash -c "pip install -r requirements.txt && python mysite/manage.py runserver 0:8000"
+    command: bash -c "pip install pymysql && python mysite/manage.py runserver 0:8000"
     volumes:
       - .:/code
     ports:
@@ -49,10 +61,8 @@ services:
       - "3000:3000"
     networks:
       - external-api
-    depends_on:
-      - db
     links:
-      - db:db
+      - mysql-db:mysql-db
 
 volumes:
   postgres_data:

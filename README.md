@@ -11,7 +11,7 @@ $ psql
 ### 起動コマンド
 
 
-### migratio
+### migration
 参考：https://docs.djangoproject.com/ja/3.2/intro/tutorial02/
 
 マイグレーションはとても強力なツールであり、プロジェクトの発展に合わせて、モデルを変更し続けていくことができます。データベースやテーブルを削除して作り直す必要はありません - マイグレーションは、データを失うことなしにデータベースをライブでアップグレードするよう特化しています。これらについてはチュートリアルの後の部分でもっと深くカバーしますが、今は、モデルの変更を実施するための3ステップガイドを覚えておいてください:
@@ -77,6 +77,10 @@ datetime.datetime(2012, 2, 26, 13, 0, 0, 775217, tzinfo=<UTC>)
 Related objects reference:
 
 https://docs.djangoproject.com/ja/3.2/ref/models/relations/
+
+### REST Api
+参考記事：<br>
+https://qiita.com/kimihiro_n/items/86e0a9e619720e57ecd8
 
 ## Frontend
 
