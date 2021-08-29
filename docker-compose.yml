@@ -25,7 +25,7 @@ services:
       dockerfile: docker/node/Dockerfile
     volumes:
       - ./frontend/:/usr/src/app
-    command: sh -c "cd my-project && npm run build && npm start"
+    command: sh -c "cd my-app && npm start"
     ports:
       - "3000:3000"
     networks:
@@ -39,4 +39,3 @@ volumes:
   postgres_data:
 networks:
   external-api:
-    external: true
