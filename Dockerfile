@@ -1,12 +1,13 @@
 FROM python:3.8
-RUN apt update && apt upgrade && apt-get install -y \
+RUN apt update && apt-get install -y \
     bzr \
     cvs \
     git \
     vim \
     mercurial \
     subversion \
-    sudo
+    sudo \
+    curl
 
 ENV PYTHONUNBUFFERED 1
 RUN mkdir /code
