@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-d=380a10alnbd)e&ve)v1+v5*b4_-%*0uoigx9zdqj_a^u4i@y
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -41,9 +41,18 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'blog',
     'rest_framework',
+    'corsheaders',
 ]
 
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.AllowAny',
+    ]
+}
+
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -54,6 +63,23 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'mysite.urls'
+
+CORS_ALLOW_ALL_ORIGINS: True
+
+CORS_ORIGIN_WHITELIST = (
+    # 'http://localhost:3000/',
+    'http://localhost:3000',
+    'http://node:3000',
+)
+
+CORS_ALLOWED_ORIGINS = [
+    "https://example.com",
+    "https://sub.example.com",
+    "http://localhost:8080",
+    "http://127.0.0.1:9000",
+    'http://localhost:3000',
+    'http://node:3000',
+]
 
 TEMPLATES = [
     {
