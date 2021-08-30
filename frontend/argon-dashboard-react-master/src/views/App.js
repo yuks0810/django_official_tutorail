@@ -51,7 +51,7 @@ import {
 import Header from "components/Headers/Header.js";
 
 const App = (props) => {
-  const [title, setTitle] = useState('no title');
+  const [title, setTitle] = useState("no title");
 
   if (window.Chart) {
     parseOptions(Chart, chartOptions());
@@ -91,7 +91,9 @@ const App = (props) => {
                 <div>
                   <h1>Home Page</h1>
                   <div>
-                    <button onClick={(e) => handleClick(e)}>Click me</button>
+                    <Button color="default" type="button" onClick={(e) => handleClick(e)}>
+                      Click me!
+                    </Button>
                   </div>
                   <p>{title}</p>
                 </div>
