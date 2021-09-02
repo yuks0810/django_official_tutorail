@@ -1,29 +1,10 @@
-/*!
-
-=========================================================
-* Argon Dashboard React - v1.2.1
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/argon-dashboard-react
-* Copyright 2021 Creative Tim (https://www.creative-tim.com)
-* Licensed under MIT (https://github.com/creativetimofficial/argon-dashboard-react/blob/master/LICENSE.md)
-
-* Coded by Creative Tim
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-*/
 import axios from "axios";
 
 import React, { useState } from "react";
-// node.js library that concatenates classes (strings)
 import classnames from "classnames";
-// javascipt plugin for creating charts
 import Chart from "chart.js";
-// react plugin used to create charts
 import { Line, Bar } from "react-chartjs-2";
+import AdminNavbar from "components/Navbars/AdminNavbar";
 // reactstrap components
 import {
   Button,
@@ -71,36 +52,8 @@ const App = (props) => {
   return (
     <>
       <Header />
-      {/* Page content */}
       <Container className="mt--7" fluid>
-        <Row>
-          <Col className="mb-5 mb-xl-1" xl="0"></Col>
-          <Col xl="5">
-            <Card className="shadow">
-              <CardHeader className="bg-transparent">
-                <Row className="align-items-center">
-                  <div className="col">
-                    <h6 className="text-uppercase text-muted ls-1 mb-1">
-                      Performance
-                    </h6>
-                    <h2 className="mb-0">Total orders</h2>
-                  </div>
-                </Row>
-              </CardHeader>
-              <CardBody>
-                <div>
-                  <h1>Home Page</h1>
-                  <div>
-                    <Button color="default" type="button" onClick={(e) => handleClick(e)}>
-                      Click me!
-                    </Button>
-                  </div>
-                  <p>{title}</p>
-                </div>
-              </CardBody>
-            </Card>
-          </Col>
-        </Row>
+
       </Container>
     </>
   );
