@@ -74,8 +74,8 @@ const App = (props) => {
       {/* Page content */}
       <Container className="mt--7" fluid>
         <Row>
-          <Col className="mb-5 mb-xl-0" xl="8"></Col>
-          <Col xl="4">
+          <Col className="mb-5 mb-xl-1" xl="0"></Col>
+          <Col xl="5">
             <Card className="shadow">
               <CardHeader className="bg-transparent">
                 <Row className="align-items-center">
