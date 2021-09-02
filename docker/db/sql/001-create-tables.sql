@@ -1,7 +1,7 @@
----- drop ----
+-- drop
 DROP TABLE IF EXISTS `test_table`;
 
----- create ----
+-- craete
 create table IF not exists `test_table`
 (
  `id`               INT(20) AUTO_INCREMENT,
