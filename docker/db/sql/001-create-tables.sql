@@ -12,8 +12,8 @@ create table IF not exists `test_table`
 ) DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- insert
-insert into `test_table` (name) values ("test_user1")
-insert into `test_table` (name) values ("test_user2")
-insert into `test_table` (name) values ("test_user3")
-insert into `test_table` (name) values ("test_user4")
-insert into `test_table` (name) values ("test_user5")
+insert into `test_table` (name) values ("test_user1");
+insert into `test_table` (name) values ("test_user2");
+insert into `test_table` (name) values ("test_user3");
+insert into `test_table` (name) values ("test_user4");
+insert into `test_table` (name) values ("test_user5");
