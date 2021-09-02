@@ -10,6 +10,11 @@ $ psql
 
 ### 起動コマンド
 
+```
+$ docker-compose exec node sh -c "cd  argon-dashboard-react-master && npm install --legacy-peer-deps"
+$ docker-compose up --build
+```
+
 
 ### migration
 参考：https://docs.djangoproject.com/ja/3.2/intro/tutorial02/
